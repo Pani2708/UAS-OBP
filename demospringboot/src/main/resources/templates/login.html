@@ -1,42 +1,28 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Login Page</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
-  </head>
-  <body>
-    <form
-      th:action="@{/validateLogin}"
-      method="post"
-      class="form-group"
-      enctype="multipart/form-data"
-    >
-      <h2>Login</h2>
 
-      <label for="email" class="form-label">Email</label>
-      <input
-        type="text"
-        id="email"
-        name="email"
-        placeholder="Masukkan email"
-        required
-      />
+<head>
+  <meta charset="UTF-8" />
+  <title>Login Page</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
+</head>
 
-      <label for="password" class="form-label">Password</label>
-      <input
-        type="password"
-        id="password"
-        name="password"
-        placeholder="Masukkan password"
-        required
-      />
+<body>
+  <form th:action="@{/validateLogin}" method="post" class="form-group" enctype="multipart/form-data">
+    <h2>Login</h2>
 
-      <button type="submit" class="btn btn-primary">Login</button>
+    <label for="email" class="form-label">Email</label>
+    <input type="text" id="email" name="email" placeholder="Masukkan email" required />
 
-      <p th:if="${param.error}" style="color: red">
-        Kode atau password salah. Silakan coba lagi.
-      </p>
-    </form>
-  </body>
+    <label for="password" class="form-label">Password</label>
+    <input type="password" id="password" name="password" placeholder="Masukkan password" required />
+
+    <button type="submit" class="btn btn-primary">Login</button>
+
+    <p th:if="${param.error}" style="color: red">
+      Kode atau password salah. Silakan coba lagi.
+    </p>
+  </form>
+</body>
+
 </html>

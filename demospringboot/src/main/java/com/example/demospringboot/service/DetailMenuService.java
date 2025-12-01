@@ -7,13 +7,14 @@ import com.example.demospringboot.repository.DetailMenuRepository;
 import java.util.List;
 
 @Service
-public class DetailMenuService{
+public class DetailMenuService {
     @Autowired
     private DetailMenuRepository detailMenuRepository;
 
     public List<DetailMenu> getAllDetailMenu() {
         return detailMenuRepository.findAll();
     }
+
     public DetailMenu addDetailMenu(DetailMenu obj) {
         Long id = null;
         obj.setId(id);

@@ -40,7 +40,6 @@ public class MenuController {
             List<Menu> menuList = menuService.getAllMenu();
             model.addAttribute("menuList", menuList);
             model.addAttribute("menuInfo", new Menu());
-            // Tambah ini untuk dropdown
             model.addAttribute("menuOptions", menuRepository.findAll());
 
             return "menu";

@@ -22,10 +22,34 @@
           <div class="card-body">
             <h4 class="card-title mb-3">Form Transaksi</h4>
             <form th:action="@{/transaction/save}" method="post">
+
               <div class="form-group mb-2">
                 <label for="idTransaksi">ID Transaksi:</label>
                 <input type="text" id="idTransaksi" name="idTransaksi" class="form-control" />
               </div>
+
+              <div class="form-group mb-2">
+                <label for="daftarmenu">Daftar Menu</label>
+                <div style="margin-top: -25px;"></div>
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Menu</th>
+                      <th>Deskripsi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr th:each="dm, no : ${detailMenus}">
+                      <td th:text="${no.count}"></td>
+                      <td th:text="${dm.menuList}"></td>
+                      <td th:text="${dm.description}"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <br>
               <div class="form-group mb-2">
                 <label for="detailMenuId">Pilih Menu:</label>
                 <select id="detailMenuId" name="detailMenuId" class="form-control" required>
@@ -33,6 +57,7 @@
                     th:text="${dMenu.menuList + ' - Rp' + dMenu.price}"></option>
                 </select>
               </div>
+
               <div class="form-group mb-2">
                 <label for="qty">Jumlah:</label>
                 <input type="number" id="qty" name="qty" class="form-control" value="1" min="1" required />

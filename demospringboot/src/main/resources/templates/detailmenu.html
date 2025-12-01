@@ -10,10 +10,10 @@
 
 <body>
     <div class="navbar">
-      <a th:href="@{/menu}">Menu</a>
-      <a th:href="@{/detailmenu}">Detail Menu</a>
-      <a th:href="@{/composition}">Composition</a>
-      <a th:href="@{/staff/logout}" class="logout">Logout</a>
+        <a th:href="@{/menu}">Menu</a>
+        <a th:href="@{/detailmenu}">Detail Menu</a>
+        <a th:href="@{/composition}">Composition</a>
+        <a th:href="@{/staff/logout}" class="logout">Logout</a>
     </div>
 
     <div class="first-box">
@@ -52,10 +52,10 @@
                 <label for="id" class="form-label">ID</label>
                 <input type="number" id="id" name="id"
                     th:value="${detailMenuRec != null} ? ${detailMenuRec.getId()}: '0'" readonly />
-            
+
                 <label for="IdMenu" class="form-label">Kode Menu</label>
                 <!-- <input type="text" id="IdMenu" name="IdMenu" th:value="${detailMenuRec?.getIdMenu()}" required /> -->
-                
+
                 <select th:field="*{idMenu}">
                     <option value="">-- pilih kode menu --</option>
                     <option th:each="m : ${menuOptions}" th:value="${m.idMenu}"

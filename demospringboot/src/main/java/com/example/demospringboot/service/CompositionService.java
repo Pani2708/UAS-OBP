@@ -7,13 +7,14 @@ import com.example.demospringboot.repository.CompositionRepository;
 import java.util.List;
 
 @Service
-public class CompositionService{
+public class CompositionService {
     @Autowired
     private CompositionRepository compositionRepository;
 
     public List<Composition> getAllComposition() {
         return compositionRepository.findAll();
     }
+
     public Composition addComposition(Composition obj) {
         Long id = null;
         obj.setId(id);
@@ -26,7 +27,7 @@ public class CompositionService{
 
     public Composition updateComposition(long id, Composition obj) {
         obj.setId(id);
-        return compositionRepository.save(obj); 
+        return compositionRepository.save(obj);
     }
 
     public void deleteComposition(long id) {

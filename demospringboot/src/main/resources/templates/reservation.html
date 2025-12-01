@@ -1,64 +1,52 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Reservation</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/reservation.css" />
-  </head>
 
-  <body class="container p-5">
-    <h2 class="mb-4 fw-bold">Buat Reservasi</h2>
-    <tbody th:each="d, no : ${personList}">
-      <tr>
-        <td th:text="${no.count}"></td>
-        <td>
-          <a
-            th:href="@{/person/{id}(id=${d.getId()})}"
-            th:text="${d.getKode()}"
-          ></a>
-        </td>
-        <td th:text="${d.getPersonName()}"></td>
-        <td th:text="${d.getEmail()}"></td>
-      </tr>
-    </tbody>
-    <form th:action="@{/reservation/save}" method="post">
-      <div class="mb-3">
-        <label>ID</label>
-        <input type="number" class="form-control" readonly />
-      </div>
-      <div class="mb-3">
-        <label>Nama</label>
-        <input
-          type="text"
-          class="form-control"
-          name="personName"
-          th:value="${personRec?.getPersonName()}"
-        />
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <title>Reservation</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/reservation.css" />
+</head>
 
-      <div class="mb-3">
-        <label>Tanggal</label>
-        <input type="date" class="form-control" name="tanggal" required />
-      </div>
+<body class="container p-5">
+  <h2 class="mb-4 fw-bold">Buat Reservasi</h2>
+  <tbody th:each="d, no : ${personList}">
+    <tr>
+      <td th:text="${no.count}"></td>
+      <td>
+        <a th:href="@{/person/{id}(id=${d.getId()})}" th:text="${d.getKode()}"></a>
+      </td>
+      <td th:text="${d.getPersonName()}"></td>
+      <td th:text="${d.getEmail()}"></td>
+    </tr>
+  </tbody>
+  <form th:action="@{/reservation/save}" method="post">
+    <div class="mb-3">
+      <label>ID</label>
+      <input type="number" class="form-control" readonly />
+    </div>
+    <div class="mb-3">
+      <label>Nama</label>
+      <input type="text" class="form-control" name="personName" th:value="${personRec?.getPersonName()}" />
+    </div>
 
-      <div class="mb-3">
-        <label>Jam</label>
-        <input type="time" class="form-control" name="jam" required />
-      </div>
+    <div class="mb-3">
+      <label>Tanggal</label>
+      <input type="date" class="form-control" name="tanggal" required />
+    </div>
 
-      <div class="mb-3">
-        <label>Jumlah Orang</label>
-        <input
-          type="number"
-          class="form-control"
-          name="jumlah"
-          min="1"
-          required
-        />
-      </div>
+    <div class="mb-3">
+      <label>Jam</label>
+      <input type="time" class="form-control" name="jam" required />
+    </div>
 
-      <button class="btn btn-dark w-100 mt-3">Konfirmasi</button>
-    </form>
-  </body>
+    <div class="mb-3">
+      <label>Jumlah Orang</label>
+      <input type="number" class="form-control" name="jumlah" min="1" required />
+    </div>
+
+    <button class="btn btn-dark w-100 mt-3">Konfirmasi</button>
+  </form>
+</body>
+
 </html>

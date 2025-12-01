@@ -33,13 +33,13 @@ public class MenuService {
         return menuRepository.findById(id).orElse(null);
     }
 
-    public Menu updateMenu(Long id, Menu obj){
-    obj.setId(id);
-    return menuRepository.save(obj);
+    public Menu updateMenu(Long id, Menu obj) {
+        obj.setId(id);
+        return menuRepository.save(obj);
     }
 
     public void deleteMenu(long id) {
         menuRepository.deleteById(id);
     }
-    
+
 }

@@ -15,7 +15,7 @@ public class TransactionService {
     private TransactionRepository transactionRepository;
 
     public void saveTransaction(Transaction transaction) {
-        transaction.updateTotalHarga(); 
+        transaction.updateTotalHarga();
         transactionRepository.save(transaction);
     }
 
@@ -33,9 +33,9 @@ public class TransactionService {
 
     public List<Transaction> getHistoryByCustomer(Long customerId) {
         return transactionRepository
-            .findAll()
-            .stream()
-            .filter(t -> t.getCustomer() != null && t.getCustomer().getId().equals(customerId))
-            .toList();
+                .findAll()
+                .stream()
+                .filter(t -> t.getCustomer() != null && t.getCustomer().getId().equals(customerId))
+                .toList();
     }
 }

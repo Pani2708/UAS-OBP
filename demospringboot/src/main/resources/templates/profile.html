@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Profile Page</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/profile.css" />
-  </head>
 
-  <body class="container p-5">
-    <div class="navbar">
-      <a th:href="@{/customer/logout}" class="logout">Logout</a>
+<head>
+  <meta charset="UTF-8" />
+  <title>Profile Page</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/profile.css" />
+</head>
+
+<body class="container p-5">
+  <div class="navbar">
+    <a th:href="@{/customer/logout}" class="logout">Logout</a>
+  </div>
+  <div class="center-wrapper">
+    <h2>Profile</h2>
+
+    <div class="profile-box">
+      <table class="profile-table">
+        <tr>
+          <td class="label">Nama</td>
+          <td th:text="${customer.personName}"></td>
+        </tr>
+        <tr>
+          <td class="label">Email</td>
+          <td th:text="${customer.email}"></td>
+        </tr>
+        <tr>
+          <td class="label">No HP</td>
+          <td th:text="${customer.phoneNo}"></td>
+        </tr>
+      </table>
     </div>
-    <div class="center-wrapper">
-      <h2>Profile</h2>
 
-      <div class="profile-box">
-        <table class="profile-table">
-          <tr>
-            <td class="label">Nama</td>
-            <td th:text="${customer.personName}"></td>
-          </tr>
-          <tr>
-            <td class="label">Email</td>
-            <td th:text="${customer.email}"></td>
-          </tr>
-          <tr>
-            <td class="label">No HP</td>
-            <td th:text="${customer.phoneNo}"></td>
-          </tr>
-        </table>
-      </div>
-
-      <div class="btn-group">
-        <a th:href="@{/reservation}" class="btn btn-primary">Buat Reservasi</a>
-        <a th:href="@{/reservation/history}" class="btn btn-secondary"
-          >Riwayat Reservasi</a
-        >
-        <a th:href="@{/profile/edit}" class="btn btn-outline">Edit Profil</a>
-      </div>
+    <div class="btn-group">
+      <a th:href="@{/reservation}" class="btn btn-primary">Buat Reservasi</a>
+      <a th:href="@{/reservation/history}" class="btn btn-secondary">Riwayat Reservasi</a>
+      <a th:href="@{/profile/edit}" class="btn btn-outline">Edit Profil</a>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

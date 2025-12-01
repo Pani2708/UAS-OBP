@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Reservation History</title>
@@ -7,10 +8,11 @@
     <link rel="stylesheet" href="/css/history.css">
 </head>
 
-<div class="container" style="max-width: 500px;"> <h2>Riwayat Reservasi</h2>
+<div class="container" style="max-width: 500px;">
+    <h2>Riwayat Reservasi</h2>
 
     <div class="reservation-list" th:each="r : ${history}">
-        
+
         <div class="reservation-card">
             <table class="table-custom">
                 <tr>
@@ -32,9 +34,10 @@
             </table>
         </div>
     </div>
-    
+
     <a class="btn-dark mt-4" th:href="@{/profile}">Kembali</a>
     <a class="btn-dark mt-4" th:href="@{/transaction}">Lanjutkan</a>
 </div>
 </body>
+
 </html>

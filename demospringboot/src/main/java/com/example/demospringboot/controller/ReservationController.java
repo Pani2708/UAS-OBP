@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
 
-// import java.time.LocalDate;
-// import java.time.LocalTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 import com.example.demospringboot.entity.Customer;
-// import com.example.demospringboot.entity.Reservation;
+import com.example.demospringboot.entity.Reservation;
 import com.example.demospringboot.service.ReservationService;
 
 import jakarta.servlet.http.HttpSession;
@@ -26,7 +26,7 @@ public class ReservationController {
     public String reservationPage(Model model, HttpSession session) {
         Customer c = (Customer) session.getAttribute("customer");
         model.addAttribute("customer", c);
-        return "reservation.html";
+        return "reservation";
     }
 
     @PostMapping("/reservation/save")
@@ -35,18 +35,7 @@ public class ReservationController {
             @RequestParam String jam,
             @RequestParam int jumlah,
             HttpSession session) {
-
-        // Customer c = (Customer) session.getAttribute("customer");
-
-        // Reservation r = new Reservation();
-        // r.setCustomer(c);
-        // r.setPersonName(c.getPersonName());
-        // r.setTanggal(LocalDate.parse(tanggal));
-        // r.setJam(LocalTime.parse(jam));
-        // r.setJumlah(jumlah);
-
-        // service.saveReservation(r);
-
+                
         return "redirect:/reservation/history";
     }
 
@@ -67,7 +56,7 @@ public class ReservationController {
         if (session.getAttribute("customer") == null) {
             return "redirect:/login";
         }
-        return "reservation.html";
+        return "reservation";
     }
 
     @GetMapping("/profile")
@@ -79,7 +68,7 @@ public class ReservationController {
         }
 
         model.addAttribute("customer", c);
-        return "profile.html";
+        return "profile";
     }
 
     @PostMapping("/profile/update")
@@ -113,7 +102,7 @@ public class ReservationController {
         }
 
         model.addAttribute("customer", c);
-        return "editprofile.html";
+        return "editprofile";
     }
 
 }

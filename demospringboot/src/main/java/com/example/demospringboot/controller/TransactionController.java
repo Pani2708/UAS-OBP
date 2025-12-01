@@ -12,8 +12,10 @@ import jakarta.servlet.http.HttpSession;
 import com.example.demospringboot.entity.Transaction;
 import com.example.demospringboot.entity.Customer;
 import com.example.demospringboot.entity.DetailMenu;
+import com.example.demospringboot.entity.Composition;
 import com.example.demospringboot.service.TransactionService;
 import com.example.demospringboot.service.DetailMenuService;
+import com.example.demospringboot.service.CompositionService;
 
 @Controller
 public class TransactionController {
@@ -24,6 +26,9 @@ public class TransactionController {
     @Autowired
     private DetailMenuService detailMenuService;
 
+    @Autowired
+    private CompositionService compositionService;
+
     @GetMapping("/transaction")
     public String transactionPage(
             @RequestParam(required = false) Long menuId,
@@ -33,6 +38,7 @@ public class TransactionController {
         Customer customer = (Customer) session.getAttribute("customer");
         model.addAttribute("customer", customer);
         model.addAttribute("detailMenus", detailMenuService.getAllDetailMenu());
+        model.addAttribute("compositions", compositionService.getAllComposition());
 
         if (menuId != null) {
             DetailMenu selectedMenu = detailMenuService.getDetailMenuById(menuId);
@@ -89,6 +95,7 @@ public class TransactionController {
             return "redirect:/login";
         }
         model.addAttribute("detailMenus", detailMenuService.getAllDetailMenu());
+        model.addAttribute("composition", compositionService.getAllComposition());
         return "transaction";
     }
 
