@@ -1,0 +1,97 @@
+<html>
+
+<head>
+    <title>Detail Menu Page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/table.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/form.css}" />
+    <script th:src="@{/js/pass.js}"></script>
+</head>
+
+<body>
+    <div class="navbar">
+      <a th:href="@{/menu}">Menu</a>
+      <a th:href="@{/detailmenu}">Detail Menu</a>
+      <a th:href="@{/composition}">Composition</a>
+      <a th:href="@{/staff/logout}" class="logout">Logout</a>
+    </div>
+
+    <div class="first-box">
+        <h2>Detail Menu List</h2>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Kode</th>
+                    <th>Daftar Menu</th>
+                    <th>Kategori</th>
+                    <th>Deskripsi</th>
+                    <th>Harga</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody th:each="d, no : ${detailMenuList}">
+                <tr>
+                    <td th:text="${no.count}"></td>
+                    <td><a th:href="@{/detailmenu/{id}(id=${d.getId()})}" th:text="${d.getIdMenu()}"></a></td>
+                    <td th:text="${d.getMenuList()}"></td>
+                    <td th:text="${d.getCategory()}"></td>
+                    <td th:text="${d.getDescription()}"></td>
+                    <td th:text="${d.getPrice()}"></td>
+                    <td th:text="${d.getStatus()}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="second-box">
+        <div id="feedback-form">
+            <h2 class="header">Form Management</h2>
+            <form th:action="@{/detailmenu/submit/{id}(id=${detailMenuRec?.getId()})}" method="post"
+                th:object="${detailMenuInfo}" class="form-group">
+                <h5>Detail Menu</h5>
+                <label for="id" class="form-label">ID</label>
+                <input type="number" id="id" name="id"
+                    th:value="${detailMenuRec != null} ? ${detailMenuRec.getId()}: '0'" readonly />
+            
+                <label for="IdMenu" class="form-label">Kode Menu</label>
+                <!-- <input type="text" id="IdMenu" name="IdMenu" th:value="${detailMenuRec?.getIdMenu()}" required /> -->
+                
+                <select th:field="*{idMenu}">
+                    <option value="">-- pilih kode menu --</option>
+                    <option th:each="m : ${menuOptions}" th:value="${m.idMenu}"
+                        th:text="${m.idMenu + ' - ' + m.menuList}">
+                    </option>
+                </select>
+
+                <label for="MenuList" class="form-label">Daftar Menu</label>
+                <input type="text" id="MenuList" name="MenuList" th:value="${detailMenuRec?.getMenuList()}" required />
+
+                <label for="category" class="form-label">Category</label>
+                <input type="text" id="category" name="category" th:value="${detailMenuRec?.getCategory()}"></input>
+
+                <label for="description" class="form-label">Deskripsi</label>
+                <textarea type="text" id="description" name="description"
+                    th:text="${detailMenuRec?.getDescription()}"></textarea>
+                <br>
+
+                <label for="price" class="form-label">Harga</label>
+                <input type="text" id="price" name="price" th:value="${detailMenuRec?.getPrice()}" />
+
+                <label for="status" class="form-label">Status</label>
+                <select id="status" name="status" th:field="*{status}">
+                    <option value="">-- Pilih Status --</option>
+                    <option value="Tersedia" th:selected="${detailMenuRec?.getStatus() == 'Tersedia'}">Tersedia</option>
+                    <option value="Habis" th:selected="${detailMenuRec?.getStatus() == 'Habis'}">Habis</option>
+                </select>
+
+                <button type="submit" class="btn btn-primary" name="add">Add</button>
+                <button type="submit" class="btn btn-primary" name="edit">Edit</button>
+                <button type="submit" class="btn btn-primary" name="delete"
+                    th:data-confirm-delete="|Are you sure you want to delete this detailMenu ${detailMenuRec?.getId()}?|"
+                    onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false">Delete</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

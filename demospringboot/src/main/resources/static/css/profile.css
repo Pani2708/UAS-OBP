@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif; 
+}
+
+body {
+  background: #E8EBF2; 
+  padding: 0; 
+  color: #1A202C;
+}
+
+.navbar {
+    padding: 10px 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #4A5568;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+
+.navbar .logout {
+    margin-left: auto; 
+    background: #E53E3E; 
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.navbar .logout:hover {
+    background: #C53030;
+    color: #ffffff;
+}
+
+.center-wrapper {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700; 
+  margin-bottom: 30px;
+  color: #1A202C;
+}
+
+.profile-box {
+  background: #fff;
+  border: 1px solid #E2E8F0; 
+  border-radius: 16px; 
+  padding: 32px 35px; 
+  width: 100%;
+  max-width: 450px; 
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04);
+}
+
+.profile-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.profile-table td {
+  padding: 12px 0; 
+  font-size: 0.95rem; 
+  vertical-align: top;
+  color: #2D3748;
+}
+
+.profile-table td.label {
+  width: 130px; 
+  font-weight: 600;
+  color: #4A5568;
+  padding-right: 15px; 
+}
+
+.profile-table tr + tr td {
+  border-top: 1px solid #E2E8F0; 
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 450px; 
+  gap: 12px; 
+}
+
+.btn {
+  padding: 13px; 
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600; 
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease; 
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #3182CE; 
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #4C51BF; 
+  box-shadow: 0 4px 10px rgba(49, 130, 206, 0.3);
+}
+
+.btn-secondary {
+  background: #EDF2F7; 
+  color: #4A5568; 
+  border: none;
+}
+
+.btn-secondary:hover {
+  background: #E2E8F0; 
+  color: #2D3748;
+}
+
+.btn-outline {
+  border: 2px solid #3182CE; 
+  color: #3182CE; 
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: #3182CE; 
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(49, 130, 206, 0.2); 
+}

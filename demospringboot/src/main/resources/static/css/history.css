@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; 
+}
+
+body {
+    background: #E8EBF2; 
+    color: #1A202C; 
+    min-height: 100vh;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+h2 {
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 30px !important;
+    color: #1A202C;
+    text-align: center;
+}
+
+.table-wrapper {
+    background: #ffffff;
+    border-radius: 16px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04);
+    border: 1px solid #E2E8F0;
+    padding: 32px 35px; 
+    width: 100%;
+    max-width: 900px; 
+}
+
+.table-custom {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 0; 
+}
+
+.table-custom thead {
+    display: none;
+}
+
+.table-custom tbody tr {
+    border: none !important; 
+}
+
+.table-custom td {
+    padding: 12px 0; 
+    font-size: 0.95rem; 
+    vertical-align: top;
+    color: #2D3748; 
+    border: none !important;
+}
+
+.table-custom tr + tr td {
+    border-top: 1px solid #E2E8F0 !important; 
+}
+
+.table-custom tbody tr td:first-child {
+    width: 150px; 
+    font-weight: 600;
+    color: #4A5568; 
+    padding-right: 15px;
+}
+
+.btn-dark {
+    background: #3182CE; 
+    color: #fff;
+    font-weight: 600;
+    padding: 12px 25px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+    border: none;
+    text-decoration: none; 
+    display: inline-block; 
+    cursor: pointer;
+}
+
+.btn-dark:hover {
+    background: #4C51BF; 
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(49, 130, 206, 0.3);
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Transaksi</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/transaction.css" />
+  <link rel="stylesheet" href="/css/form.css" />
+</head>
+
+<body>
+  <div class="navbar">
+    <a th:href="@{/staff/logout}" class="logout">Logout</a>
+  </div>
+
+  <div class="container mt-4">
+    <h2 class="mb-3">Form & Data Transaksi</h2>
+    <div class="row">
+      <div class="col-md-5">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h4 class="card-title mb-3">Form Transaksi</h4>
+            <form th:action="@{/transaction/save}" method="post">
+              <div class="form-group mb-2">
+                <label for="idTransaksi">ID Transaksi:</label>
+                <input type="text" id="idTransaksi" name="idTransaksi" class="form-control" />
+              </div>
+              <div class="form-group mb-2">
+                <label for="detailMenuId">Pilih Menu:</label>
+                <select id="detailMenuId" name="detailMenuId" class="form-control" required>
+                  <option th:each="dMenu : ${detailMenus}" th:value="${dMenu.id}"
+                    th:text="${dMenu.menuList + ' - Rp' + dMenu.price}"></option>
+                </select>
+              </div>
+              <div class="form-group mb-2">
+                <label for="qty">Jumlah:</label>
+                <input type="number" id="qty" name="qty" class="form-control" value="1" min="1" required />
+              </div>
+              <button type="submit" class="btn btn-primary mt-2">
+                Simpan Transaksi
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title mb-3">Data Customer</h4>
+            <div th:if="${customer != null}">
+              <p>
+                Nama:
+                <span th:text="${customer.personName}">[Nama Customer]</span>
+              </p>
+              <p>Email: <span th:text="${customer.email}">[Email]</span></p>
+              <p>No HP: <span th:text="${customer.phoneNo}">[No HP]</span></p>
+            </div>
+            <div th:unless="${customer != null}">
+              <div class="alert alert-warning mb-0">
+                Silakan login terlebih dahulu untuk melakukan transaksi.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title mb-3">Riwayat Transaksi</h4>
+            <table class="table table-bordered table-striped mb-0">
+              <thead>
+                <tr>
+                  <th>ID Transaksi</th>
+                  <th>Menu</th>
+                  <th>Harga Satuan</th>
+                  <th>Jumlah</th>
+                  <th>Total Harga</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="trx : ${history}">
+                  <td th:text="${trx.idTransaksi}">-</td>
+
+                  <td th:text="${trx.detailMenu?.menuList} ?: '-'"></td>
+
+                  <td th:text="${trx.detailMenu?.price} ?: '-'"></td>
+
+                  <td th:text="${trx.qty}">-</td>
+                  <td th:text="${trx.totalHarga}">-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

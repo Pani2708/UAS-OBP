@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Staff Page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/form.css}" />
+    <script th:src="@{/js/pass.js}"></script>
+  </head>
+  <body>
+    <div class="navbar">
+      <a th:href="@{/person}">Person</a>
+      <a th:href="@{/customer}">Customer</a>
+      <a th:href="@{/staff}">Staff</a>
+      <a th:href="@{/staff/logout}" class="logout">Logout</a>
+    </div>
+    
+    <div class="first-box">
+      <h2>Staff List</h2>
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Kode</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Position</th>
+            <th>Salary</th>
+          </tr>
+        </thead>
+        <tbody th:each="d, no : ${staffList}">
+          <tr>
+            <td th:text="${no.count}"></td>
+            <td>
+              <a
+                th:href="@{/staff/{id}(id=${d.getId()})}"
+                th:text="${d.getKode()}"
+              ></a>
+            </td>
+            <td th:text="${d.getPersonName()}"></td>
+            <td th:text="${d.getEmail()}"></td>
+            <td th:text="${d.getPassword()}"></td>
+            <td th:text="${d.getPosition()}"></td>
+
+            <td
+              th:text="${#strings.replace(#numbers.formatCurrency(d.getSalary()),'.00','')}"
+            ></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="second-box">
+      <div id="feedback-form">
+        <h2 class="header">Staff Form</h2>
+
+        <form
+          th:action="@{/staff/submit/{id}(id=${staffRec?.getId()})}"
+          method="post"
+          th:object="${staffInfo}"
+          class="form-group"
+        >
+          <label for="id" class="form-label">ID</label>
+          <input
+            type="number"
+            id="id"
+            name="id"
+            th:value="${staffRec != null} ? ${staffRec.getId()} : ''"
+            readonly
+          />
+
+          <label for="kode" class="form-label">Kode</label>
+          <input
+            type="text"
+            id="kode"
+            name="kode"
+            th:value="${staffRec?.getKode()}"
+            required
+          />
+
+          <label for="name" class="form-label">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="personName"
+            th:value="${staffRec?.getPersonName()}"
+            required
+          />
+
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            th:value="${staffRec?.getEmail()}"
+            required
+          />
+
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="text"
+            id="password"
+            name="password"
+            th:value="${staffRec?.getPassword()}"
+            required
+          />
+
+          <label for="position" class="form-label">Position</label>
+          <input
+            type="text"
+            id="position"
+            name="position"
+            th:value="${staffRec?.getPosition()}"
+            required
+          />
+
+          <label for="salary" class="form-label">Salary</label>
+          <input
+            type="number"
+            id="salary"
+            name="salary"
+            th:value="${staffRec?.getSalary()}"
+            required
+          />
+
+          <div id="warning"></div>
+
+          <button type="submit" class="btn btn-primary" name="add">Add</button>
+          <button type="submit" class="btn btn-primary" name="edit">
+            Edit
+          </button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            name="delete"
+            th:data-confirm-delete="|Are you sure you want to delete this staff ${staffRec?.getId()}?|"
+            onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"
+          >
+            Delete
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

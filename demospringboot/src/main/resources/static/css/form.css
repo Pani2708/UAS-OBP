@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; 
+}
+
+body {
+    background: #E8EBF2; 
+    color: #1A202C;
+    min-height: 100vh;
+}
+
+.navbar {
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px; 
+    max-width: 100%;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #4A5568; 
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover:not(.logout) {
+    color: #3182CE; 
+}
+
+.navbar .logout {
+    margin-left: auto; 
+    background: #E53E3E; 
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.navbar .logout:hover {
+    background: #C53030;
+    color: #ffffff;
+}
+
+body > div {
+    margin: 0 auto; 
+    padding: 0 40px;
+    max-width: 1300px; 
+}
+
+.first-box, .second-box {
+    margin-bottom: 30px;
+}
+
+.first-box {
+    padding-top: 20px;
+}
+
+body {
+    display: block; 
+}
+
+.main-content {
+    display: flex;
+    gap: 40px; 
+    margin: 0 auto;
+    max-width: 1300px;
+    padding: 0 40px;
+}
+
+.first-box {
+    float: left;
+    width: 60%; 
+    max-width: 800px;
+}
+.second-box {
+    float: right;
+    width: 40%; 
+    max-width: 450px; 
+}
+
+.first-box h2, #feedback-form .header {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1A202C;
+    margin-bottom: 25px;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 12px; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden; 
+}
+
+.styled-table thead tr {
+    background-color: #3182CE; 
+    color: #ffffff;
+    text-align: left;
+    font-weight: 600;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+    border: none;
+    font-size: 0.95rem;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #E2E8F0; 
+    color: #2D3748;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #F7FAFC;
+}
+
+.styled-table tbody tr td a {
+    color: #3182CE; 
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.styled-table tbody tr td a:hover {
+    text-decoration: underline;
+}
+
+#feedback-form {
+    background: #ffffff;
+    padding: 32px 35px; 
+    border-radius: 16px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04);
+    border: 1px solid #E2E8F0;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    font-size: 0.9rem; 
+    font-weight: 500;
+    color: #4A5568; 
+    margin-top: 15px; 
+    margin-bottom: 6px; 
+    display: block; 
+}
+
+#feedback-form input {
+    width: 100%; 
+    padding: 12px 14px;
+    border: 1px solid #CBD5E0; 
+    border-radius: 8px; 
+    background: #F7FAFC; 
+    transition: all 0.3s ease-in-out; 
+    &[readonly] {
+        background: #EDF2F7; 
+        color: #718096;
+        cursor: not-allowed;
+    }
+}
+
+#feedback-form input:not([readonly]):hover {
+    background: #FFFFFF;
+    border-color: #A0AEC0;
+}
+
+#feedback-form input:focus {
+    border-color: #4299E1; 
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.3);
+    outline: none; 
+}
+
+#feedback-form .btn-primary {
+    width: auto; 
+    margin-top: 25px;
+    margin-right: 10px; 
+    padding: 12px 20px; 
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600; 
+    background: #3182CE; 
+    color: #ffffff;
+    transition: background 0.3s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-block; 
+}
+
+#feedback-form .btn-primary:hover {
+    background: #4C51BF; 
+    box-shadow: 0 4px 8px rgba(49, 130, 206, 0.3);
+    color: #ffffff;
+}
+
+#feedback-form button[name="delete"] {
+    background: #E53E3E; 
+}
+
+#feedback-form button[name="delete"]:hover {
+    background: #C53030;
+    box-shadow: 0 4px 8px rgba(229, 62, 62, 0.3);
+}
