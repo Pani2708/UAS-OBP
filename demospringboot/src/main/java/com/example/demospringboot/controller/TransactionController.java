@@ -99,4 +99,20 @@ public class TransactionController {
         return "transaction";
     }
 
+    @PostMapping("/transaction/total")
+    public String hitungTotalPembelian(Model model, HttpSession session) {
+        Customer customer = (Customer) session.getAttribute("customer");
+        if (customer == null) {
+            return "redirect:/login";
+        }
+
+        model.addAttribute("customer", customer);
+        model.addAttribute("detailMenus", detailMenuService.getAllDetailMenu());
+        model.addAttribute("history", transactionService.getHistoryByCustomer(customer.getId()));
+
+        Integer totalHarga = transactionService.hitungTotalByCustomer(customer.getId());
+        model.addAttribute("totalHarga", totalHarga);
+
+        return "transaction";
+    }
 }

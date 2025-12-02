@@ -38,4 +38,20 @@ public class TransactionService {
                 .filter(t -> t.getCustomer() != null && t.getCustomer().getId().equals(customerId))
                 .toList();
     }
+
+    public Integer hitungTotalByCustomer(Long customerId) {
+        List<Transaction> transaksiCustomer = transactionRepository.findAll()
+                .stream()
+                .filter(t -> t.getCustomer() != null
+                        && t.getCustomer().getId().equals(customerId))
+                .toList();
+        Double[] arrHarga = transaksiCustomer.stream()
+                .map(Transaction::getTotalHarga)
+                .toArray(Double[]::new);
+        double total = 0;
+        for (int i = 0; i < arrHarga.length; i++) {
+            total += arrHarga[i];
+        }
+        return (int) total;
+    }
 }

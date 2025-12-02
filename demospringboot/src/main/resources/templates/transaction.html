@@ -117,6 +117,13 @@
           </div>
         </div>
       </div>
+      <form th:action="@{/transaction/total}" method="post">
+        <button type="submit" class="btn-total">Konfirmasi Pesanan</button>
+      </form>
+      <div class="total-wrapper" th:if="${totalHarga != null}">
+        <span class="total-label">Total Pembelian</span>
+        <span class="total-value" th:text="${totalHarga}"></span>
+      </div>
     </div>
   </div>
 </body>

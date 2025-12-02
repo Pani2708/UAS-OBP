@@ -104,5 +104,4 @@ public class ReservationController {
         model.addAttribute("customer", c);
         return "editprofile";
     }
-
 }
