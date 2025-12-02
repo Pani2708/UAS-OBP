@@ -20,17 +20,16 @@
       <div class="col-md-5">
         <div class="card mb-3">
           <div class="card-body">
-            <h4 class="card-title mb-3">Form Transaksi</h4>
             <form th:action="@{/transaction/save}" method="post">
 
-              <div class="form-group mb-2">
+              <!-- <div class="form-group mb-2">
                 <label for="idTransaksi">ID Transaksi:</label>
                 <input type="text" id="idTransaksi" name="idTransaksi" class="form-control" />
-              </div>
+              </div> -->
 
               <div class="form-group mb-2">
-                <label for="daftarmenu">Daftar Menu</label>
-                <div style="margin-top: -25px;"></div>
+                <label for="daftarmenu"><h3>Daftar Menu</h3></label>
+                <div style="margin-top: -20px;"></div>
                 <table class="table table-bordered">
                   <thead>
                     <tr>
@@ -94,7 +93,6 @@
             <table class="table table-bordered table-striped mb-0">
               <thead>
                 <tr>
-                  <th>ID Transaksi</th>
                   <th>Menu</th>
                   <th>Harga Satuan</th>
                   <th>Jumlah</th>
@@ -103,12 +101,8 @@
               </thead>
               <tbody>
                 <tr th:each="trx : ${history}">
-                  <td th:text="${trx.idTransaksi}">-</td>
-
                   <td th:text="${trx.detailMenu?.menuList} ?: '-'"></td>
-
                   <td th:text="${trx.detailMenu?.price} ?: '-'"></td>
-
                   <td th:text="${trx.qty}">-</td>
                   <td th:text="${trx.totalHarga}">-</td>
                 </tr>

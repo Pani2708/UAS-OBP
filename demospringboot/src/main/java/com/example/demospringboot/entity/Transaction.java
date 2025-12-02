@@ -7,8 +7,9 @@ import jakarta.persistence.*;
 public class Transaction {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_transaksi")
-    private String idTransaksi;
+    private Long idTransaksi;
 
     @Column(name = "total_harga")
     private double totalHarga;
@@ -26,11 +27,11 @@ public class Transaction {
 
     public Transaction() {}
 
-    public String getIdTransaksi() {
+    public Long getIdTransaksi() {
         return idTransaksi;
     }
 
-    public void setIdTransaksi(String idTransaksi) {
+    public void setIdTransaksi(Long idTransaksi) {
         this.idTransaksi = idTransaksi;
     }
 

@@ -23,11 +23,11 @@ public class TransactionService {
         return transactionRepository.findAll();
     }
 
-    public Optional<Transaction> getTransactionById(String idTransaksi) {
+    public Optional<Transaction> getTransactionById(Long idTransaksi) {
         return transactionRepository.findById(idTransaksi);
     }
 
-    public void deleteTransaction(String idTransaksi) {
+    public void deleteTransaction(Long idTransaksi) {
         transactionRepository.deleteById(idTransaksi);
     }
 

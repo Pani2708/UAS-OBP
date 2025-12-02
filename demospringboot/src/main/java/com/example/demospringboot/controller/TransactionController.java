@@ -53,7 +53,7 @@ public class TransactionController {
 
     @PostMapping("/transaction/save")
     public String saveTransaction(
-            @RequestParam String idTransaksi,
+            // @RequestParam String idTransaksi,
             @RequestParam("detailMenuId") long menuId,
             @RequestParam int qty,
             HttpSession session) {
@@ -65,7 +65,6 @@ public class TransactionController {
         DetailMenu detailMenu = detailMenuService.getDetailMenuById(menuId);
 
         Transaction trx = new Transaction();
-        trx.setIdTransaksi(idTransaksi);
         trx.setCustomer(customer);
         trx.setDetailMenu(detailMenu);
         trx.setQty(qty);
