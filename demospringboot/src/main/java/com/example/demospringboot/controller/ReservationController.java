@@ -34,8 +34,21 @@ public class ReservationController {
             @RequestParam String tanggal,
             @RequestParam String jam,
             @RequestParam int jumlah,
+            @RequestParam String personName,
             HttpSession session) {
-                
+
+        Customer c = (Customer) session.getAttribute("customer");
+        if (c == null) {
+            return "redirect:/login";
+        }
+        Reservation r = new Reservation();
+        r.setCustomer(c);
+        r.setPersonName(personName);
+        r.setTanggal(LocalDate.parse(tanggal));
+        r.setJam(LocalTime.parse(jam));
+        r.setJumlah(jumlah);
+
+        service.saveReservation(r);
         return "redirect:/reservation/history";
     }
 
@@ -45,8 +58,7 @@ public class ReservationController {
         if (c == null) {
             return "redirect:/login";
         }
-        model.addAttribute("history",
-                service.getHistoryByCustomer(c.getId()));
+        model.addAttribute("history", service.getHistoryByCustomer(c.getId()));
 
         return "history.html";
     }
@@ -104,4 +116,5 @@ public class ReservationController {
         model.addAttribute("customer", c);
         return "editprofile";
     }
+
 }

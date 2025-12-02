@@ -8,36 +8,37 @@
     <link rel="stylesheet" href="/css/history.css">
 </head>
 
-<div class="container" style="max-width: 500px;">
-    <h2>Riwayat Reservasi</h2>
+<body>
+    <div class="container" style="max-width: 500px;">
+        <h2>Riwayat Reservasi</h2>
 
-    <div class="reservation-list" th:each="r : ${history}">
+        <div class="reservation-list" th:each="r : ${history}">
 
-        <div class="reservation-card">
-            <table class="table-custom">
-                <tr>
-                    <td class="label">Nama</td>
-                    <td th:text="${r.getPersonName()}"></td>
-                </tr>
-                <tr>
-                    <td class="label">Tanggal</td>
-                    <td th:text="${r.tanggal}"></td>
-                </tr>
-                <tr>
-                    <td class="label">Jam</td>
-                    <td th:text="${r.jam}"></td>
-                </tr>
-                <tr>
-                    <td class="label">Jumlah Orang</td>
-                    <td th:text="${r.jumlah}"></td>
-                </tr>
-            </table>
+            <div class="reservation-card">
+                <table class="table-custom">
+                    <tr>
+                        <td class="label">Nama</td>
+                        <td th:text="${r.getPersonName()}"></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Tanggal</td>
+                        <td th:text="${r.tanggal}"></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Jam</td>
+                        <td th:text="${r.jam}"></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Jumlah Orang</td>
+                        <td th:text="${r.jumlah}"></td>
+                    </tr>
+                </table>
+            </div>
         </div>
-    </div>
 
-    <a class="btn-dark mt-4" th:href="@{/profile}">Kembali</a>
-    <a class="btn-dark mt-4" th:href="@{/transaction}">Lanjutkan</a>
-</div>
+        <a class="btn-dark mt-4" th:href="@{/profile}">Kembali</a>
+        <a class="btn-dark mt-4" th:href="@{/transaction}">Lanjutkan</a>
+    </div>
 </body>
 
 </html>

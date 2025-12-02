@@ -12,7 +12,6 @@ import jakarta.servlet.http.HttpSession;
 import com.example.demospringboot.entity.Transaction;
 import com.example.demospringboot.entity.Customer;
 import com.example.demospringboot.entity.DetailMenu;
-import com.example.demospringboot.entity.Composition;
 import com.example.demospringboot.service.TransactionService;
 import com.example.demospringboot.service.DetailMenuService;
 import com.example.demospringboot.service.CompositionService;
