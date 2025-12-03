@@ -12,14 +12,18 @@ import com.example.demospringboot.repository.CustomerRepository;
 
 @Service
 public class ReservationService {
-
     @Autowired
     private ReservationRepository repo;
+
     @Autowired
     private CustomerRepository customerRepository;
 
     public void saveReservation(Reservation r) {
         repo.save(r);
+    }
+
+    public Reservation getLastReservationByCustomer(Long customerId) {
+        return repo.findTopByCustomer_IdOrderByTanggalDesc(customerId);
     }
 
     public List<Reservation> getHistoryByCustomer(Long customerId) {

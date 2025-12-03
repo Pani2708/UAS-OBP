@@ -21,14 +21,10 @@
         <div class="card mb-3">
           <div class="card-body">
             <form th:action="@{/transaction/save}" method="post">
-
-              <!-- <div class="form-group mb-2">
-                <label for="idTransaksi">ID Transaksi:</label>
-                <input type="text" id="idTransaksi" name="idTransaksi" class="form-control" />
-              </div> -->
-
               <div class="form-group mb-2">
-                <label for="daftarmenu"><h3>Daftar Menu</h3></label>
+                <label for="daftarmenu">
+                  <h3>Daftar Menu</h3>
+                </label>
                 <div style="margin-top: -20px;"></div>
                 <table class="table table-bordered">
                   <thead>
@@ -55,6 +51,10 @@
                   <option th:each="dMenu : ${detailMenus}" th:value="${dMenu.id}"
                     th:text="${dMenu.menuList + ' - Rp' + dMenu.price}"></option>
                 </select>
+              </div>
+
+              <div th:if="${errorMessage}" class="alert-error">
+                <p th:text="${errorMessage}"></p>
               </div>
 
               <div class="form-group mb-2">

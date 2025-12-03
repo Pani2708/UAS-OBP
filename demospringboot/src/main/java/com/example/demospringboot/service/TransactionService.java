@@ -20,7 +20,7 @@ public class TransactionService {
     }
 
     public List<Transaction> getAllTransactions() {
-        return transactionRepository.findAll();
+        return transactionRepository.findAllWithCustomerAndMenu();
     }
 
     public Optional<Transaction> getTransactionById(Long idTransaksi) {

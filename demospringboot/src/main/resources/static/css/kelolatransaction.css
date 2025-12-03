@@ -10,6 +10,9 @@
 body {
     min-height: 100vh;
     background: #E8EBF2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .container {
@@ -17,11 +20,10 @@ body {
     max-width: 1100px;
 }
 
-h2,
-.card-title {
+h2.page-title {
     text-align: center;
-    margin-bottom: 14px !important;
-    font-size: 2.1rem;
+    margin-bottom: 20px;
+    font-size: 2rem;
     font-weight: 700;
     color: #1A202C;
 }
@@ -37,67 +39,6 @@ h2,
 .card-body {
     border-radius: 16px;
     padding: 30px 28px;
-}
-
-.form-group label {
-    font-size: 0.98rem;
-    font-weight: 500;
-    color: #4A5568;
-    margin-bottom: 6px;
-    display: block;
-}
-
-.form-control {
-    width: 100%;
-    padding: 12px 14px;
-    border: 1px solid #CBD5E0;
-    border-radius: 8px;
-    background: #F7FAFC;
-    transition: all 0.3s ease-in-out;
-    margin-bottom: 18px;
-}
-
-.form-control:hover {
-    background: #FFFFFF;
-    border-color: #A0AEC0;
-}
-
-.form-control:focus {
-    border-color: #4299E1;
-    background: #fff;
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.24);
-    outline: none;
-}
-
-.btn-primary {
-    display: block;
-    width: 100%;
-    padding: 13px;
-    border-radius: 8px;
-    font-size: 1.07rem;
-    font-weight: 600;
-    background: #3182CE;
-    color: #fff;
-    border: none;
-    margin-top: 6px;
-    transition: background 0.3s;
-    cursor: pointer;
-    box-shadow: 0 2px 12px rgba(49, 130, 206, 0.13);
-}
-
-.btn-primary:hover {
-    background: #4C51BF;
-    box-shadow: 0 4px 10px rgba(49, 130, 206, 0.21);
-}
-
-.alert-warning {
-    border-radius: 8px;
-    padding: 14px 18px;
-    font-size: 1rem;
-    background: #FEF3C7;
-    color: #975A16;
-    border: none;
-    margin-bottom: 0;
 }
 
 .table {
@@ -130,6 +71,23 @@ h2,
     background-color: #F7FAFC;
 }
 
+.btn-back {
+    display: inline-block;
+    margin-top: 15px;
+    background: #4A5568;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.btn-back:hover {
+    background: #2D3748;
+    color: white;
+}
+
 .card-title {
     font-size: 1.2rem;
     font-weight: 600;
@@ -150,8 +108,4 @@ h2,
     .card-body {
         margin-bottom: 18px;
     }
-}
-
-.btn-total {
-    margin-bottom: 10px;
 }

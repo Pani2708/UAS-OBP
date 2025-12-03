@@ -54,8 +54,6 @@
                     th:value="${detailMenuRec != null} ? ${detailMenuRec.getId()}: '0'" readonly />
 
                 <label for="IdMenu" class="form-label">Kode Menu</label>
-                <!-- <input type="text" id="IdMenu" name="IdMenu" th:value="${detailMenuRec?.getIdMenu()}" required /> -->
-
                 <select th:field="*{idMenu}">
                     <option value="">-- pilih kode menu --</option>
                     <option th:each="m : ${menuOptions}" th:value="${m.idMenu}"
@@ -72,7 +70,6 @@
                 <label for="description" class="form-label">Deskripsi</label>
                 <textarea type="text" id="description" name="description"
                     th:text="${detailMenuRec?.getDescription()}"></textarea>
-                <br>
 
                 <label for="price" class="form-label">Harga</label>
                 <input type="text" id="price" name="price" th:value="${detailMenuRec?.getPrice()}" />

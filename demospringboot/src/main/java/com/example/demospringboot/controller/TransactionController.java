@@ -6,13 +6,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
-
+import java.util.Map;
 import jakarta.servlet.http.HttpSession;
 
+import java.util.HashMap;
+import java.util.List;
 import com.example.demospringboot.entity.Transaction;
 import com.example.demospringboot.entity.Customer;
 import com.example.demospringboot.entity.DetailMenu;
+import com.example.demospringboot.entity.Reservation;
 import com.example.demospringboot.service.TransactionService;
+import com.example.demospringboot.service.ReservationService;
 import com.example.demospringboot.service.DetailMenuService;
 import com.example.demospringboot.service.CompositionService;
 
@@ -27,6 +31,9 @@ public class TransactionController {
 
     @Autowired
     private CompositionService compositionService;
+
+    @Autowired
+    private ReservationService reservationService;
 
     @GetMapping("/transaction")
     public String transactionPage(
@@ -51,18 +58,48 @@ public class TransactionController {
         return "transaction";
     }
 
+    @GetMapping("/kelolatransaction")
+    public String kelolaTransaction(Model model) {
+        List<Transaction> allTransactions = transactionService.getAllTransactions();
+        Map<Long, String> tanggalMap = new HashMap<>();
+        for (Transaction trx : allTransactions) {
+            if (trx.getCustomer() != null) {
+                Reservation res = reservationService.getLastReservationByCustomer(trx.getCustomer().getId());
+                if (res != null) {
+                    tanggalMap.put(trx.getIdTransaksi(), res.getTanggal().toString());
+                } else {
+                    tanggalMap.put(trx.getIdTransaksi(), "-");
+                }
+            } else {
+                tanggalMap.put(trx.getIdTransaksi(), "-");
+            }
+        }
+        model.addAttribute("tanggalMap", tanggalMap);
+        model.addAttribute("allTransactions", allTransactions);
+        return "kelolatransaction";
+    }
+
     @PostMapping("/transaction/save")
     public String saveTransaction(
-            // @RequestParam String idTransaksi,
             @RequestParam("detailMenuId") long menuId,
             @RequestParam int qty,
-            HttpSession session) {
+            HttpSession session, Model model) {
 
         Customer customer = (Customer) session.getAttribute("customer");
         if (customer == null)
             return "redirect:/login";
 
         DetailMenu detailMenu = detailMenuService.getDetailMenuById(menuId);
+
+        if (detailMenu.getStatus().equalsIgnoreCase("Habis")) {
+            model.addAttribute("errorMessage",
+                    "Mohon maaf, " + detailMenu.getMenuList() + " sedang habis.");
+            model.addAttribute("customer", customer);
+            model.addAttribute("detailMenus", detailMenuService.getAllDetailMenu());
+            model.addAttribute("history", transactionService.getHistoryByCustomer(customer.getId()));
+
+            return "transaction";
+        }
 
         Transaction trx = new Transaction();
         trx.setCustomer(customer);
@@ -84,7 +121,7 @@ public class TransactionController {
         model.addAttribute("customer", customer);
         model.addAttribute("detailMenus", detailMenuService.getAllDetailMenu());
         model.addAttribute("history", transactionService.getHistoryByCustomer(customer.getId()));
-        return "transaction";
+        return "history";
     }
 
     @GetMapping("/transaction/form")

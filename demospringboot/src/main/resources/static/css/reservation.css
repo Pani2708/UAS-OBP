@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -12,73 +13,73 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #E8EBF2; 
+  background: #E8EBF2;
 }
 
 h2 {
   text-align: center;
-  margin-bottom: 10px !important; 
-  font-size: 2rem; 
-  font-weight: 700; 
-  color: #1A202C; 
+  margin-bottom: 10px !important;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1A202C;
 }
 
 form {
   width: 100%;
-  max-width: 400px; 
+  max-width: 400px;
   background: #ffffff;
-  padding: 32px 35px; 
-  border-radius: 16px; 
+  padding: 32px 35px;
+  border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04);
-  border: 1px solid #E2E8F0; 
+  border: 1px solid #E2E8F0;
 }
 
 form label {
-  font-size: 0.9rem; 
+  font-size: 0.9rem;
   font-weight: 500;
-  color: #4A5568; 
-  margin-bottom: 6px; 
-  display: block; 
+  color: #4A5568;
+  margin-bottom: 6px;
+  display: block;
 }
 
 form .form-control {
   width: 100%;
   padding: 12px 14px;
-  border: 1px solid #CBD5E0; 
-  border-radius: 8px; 
-  background: #F7FAFC; 
-  transition: all 0.3s ease-in-out; 
-  margin-bottom: 18px; 
+  border: 1px solid #CBD5E0;
+  border-radius: 8px;
+  background: #F7FAFC;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 18px;
 }
 
 form .form-control:hover {
-  background: #FFFFFF; 
-  border-color: #A0AEC0; 
+  background: #FFFFFF;
+  border-color: #A0AEC0;
 }
 
 form .form-control:focus {
-  border-color: #4299E1; 
+  border-color: #4299E1;
   background: #fff;
   box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.3);
-  outline: none; 
+  outline: none;
 }
 
 form .btn-dark {
-  display: block; 
+  display: block;
   width: 100%;
-  padding: 13px; 
+  padding: 13px;
   border-radius: 8px;
   font-size: 1.05rem;
-  font-weight: 600; 
-  background: #3182CE; 
-  color: #ffffff; 
+  font-weight: 600;
+  background: #3182CE;
+  color: #ffffff;
   transition: background 0.3s ease;
   border: none;
   cursor: pointer;
 }
 
 form .btn-dark:hover {
-  background: #4C51BF; 
+  background: #4C51BF;
   box-shadow: 0 4px 10px rgba(49, 130, 206, 0.3);
 }
 

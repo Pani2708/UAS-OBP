@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Data Transaksi Customer</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/kelolatransaction.css">
+
+</head>
+
+<body>
+    <div class="contai'">
+
+        <div class="container mt-5">
+            <h2 class="page-title">Daftar Seluruh Transaksi Customer</h2>
+
+            <div class="card mt-4">
+                <div class="card-body">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Customer</th>
+                                <th>Menu</th>
+                                <th>Harga Satuan</th>
+                                <th>Jumlah</th>
+                                <th>Total Harga</th>
+                                <th>Tanggal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="trx, no : ${allTransactions}">
+                                <td th:text="${no.count}"></td>
+                                <td th:text="${trx.customer != null ? trx.customer.personName : '-'}"></td>
+                                <td th:text="${trx.detailMenu != null ? trx.detailMenu.menuList : '-'}"></td>
+                                <td th:text="${trx.detailMenu != null ? 'Rp ' + trx.detailMenu.price : '-'}"></td>
+                                <td th:text="${trx.qty != null ? trx.qty : '-'}"></td>
+                                <td th:text="'Rp ' + ${trx.totalHarga}"></td>
+                                <td th:text="${tanggalMap[trx.idTransaksi]}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <a class="btn-back" th:href="@{/staff/menu}">Kembali</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

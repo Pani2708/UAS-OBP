@@ -12,7 +12,6 @@
   <h2 class="mb-4 fw-bold">Buat Reservasi</h2>
   <tbody th:each="d, no : ${personList}">
     <tr>
-      <td th:text="${no.count}"></td>
       <td>
         <a th:href="@{/person/{id}(id=${d.getId()})}" th:text="${d.getKode()}"></a>
       </td>
@@ -21,10 +20,6 @@
     </tr>
   </tbody>
   <form th:action="@{/reservation/save}" method="post">
-    <div class="mb-3">
-      <label>ID</label>
-      <input type="number" class="form-control" readonly />
-    </div>
     <div class="mb-3">
       <label>Nama</label>
       <input type="text" class="form-control" name="personName" th:value="${personRec?.getPersonName()}" />

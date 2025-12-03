@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif; 
+    font-family: 'Poppins', sans-serif;
 }
 
 
@@ -13,8 +13,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #E8EBF2; 
-    color: #1A202C; 
+    background: #E8EBF2;
+    color: #1A202C;
 }
 
 .menu-container {
@@ -26,26 +26,26 @@ body {
 
 .menureservasi {
     background: #ffffff;
-    padding: 32px 35px; 
-    border: 1px solid #E2E8F0; 
-    border-radius: 16px; 
-    width: 350px; 
+    padding: 32px 35px;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    width: 350px;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04);
 }
 
 
 .menureservasi h3 {
-    font-size: 1.5rem; 
-    font-weight: 700; 
-    color: #1A202C; 
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1A202C;
     margin-bottom: 25px;
 }
 
 .menureservasi a {
     display: block;
     text-decoration: none;
-    margin: 12px 0; 
+    margin: 12px 0;
     padding: 13px 0;
     border-radius: 8px;
     font-size: 1.05rem;
@@ -61,17 +61,17 @@ body {
 }
 
 .menureservasi a:first-of-type:hover {
-    background: #4C51BF; 
+    background: #4C51BF;
     box-shadow: 0 4px 8px rgba(49, 130, 206, 0.3);
 }
 
 
 .menureservasi a:last-of-type {
-    background: #EDF2F7; 
-    color: #4A5568; 
+    background: #EDF2F7;
+    color: #4A5568;
     border: none;
 }
 
 .menureservasi a:last-of-type:hover {
-    background: #E2E8F0; 
+    background: #E2E8F0;
 }
